@@ -2,7 +2,6 @@
 {
     public interface IEntity
     {
-        decimal Amount { get; set; }
-        decimal Rate { get; set; }
+        double Amount { get; set; }
     }
 }
