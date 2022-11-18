@@ -3,7 +3,7 @@ using StrategyPattern.Models.v1;
 
 namespace StrategyPattern.Services.v1
 {
-    public class DebitCardService : IStrategy<DebitCard>
+    public class DebitCardService : IStrategy
     {
         public double GetValue(double value)
         {

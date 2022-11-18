@@ -3,7 +3,7 @@ using StrategyPattern.Models.v1;
 
 namespace StrategyPattern.Services.v1
 {
-    public class PixService : IStrategy<Pix>
+    public class PixService : IStrategy
     {
         public double GetValue(double value)
         {

@@ -3,7 +3,7 @@ using StrategyPattern.Models.v1;
 
 namespace StrategyPattern.Services.v1
 {
-    public class WithdrawService : IStrategy<Withdraw>
+    public class WithdrawService : IStrategy
     {
         public double GetValue(double value)
         {
