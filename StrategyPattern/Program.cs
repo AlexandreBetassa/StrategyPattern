@@ -11,11 +11,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddTransient<PixService>();
 builder.Services.AddTransient<IStrategy<Pix>, PixService>();
 builder.Services.AddTransient<IStrategy<DebitCard>, DebitCardService>();
 builder.Services.AddTransient<IStrategy<Withdraw>, WithdrawService>();
 builder.Services.AddTransient<IStrategy<CreditCard>, CreditCardService>();
+
 
 var app = builder.Build();
 
