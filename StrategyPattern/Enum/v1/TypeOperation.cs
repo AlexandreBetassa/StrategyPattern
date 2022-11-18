@@ -1,11 +1,14 @@
-﻿namespace StrategyPattern.Enum.v1
+﻿using StrategyPattern.Contracts.v1;
+
+namespace StrategyPattern.Enum.v1
 {
-    public enum TypeOperation
+    public enum TypeOperation : int
     {
-        Pix,
-        Withdraw,
-        CreditCard,
-        DebitCard
+        PixService,
+        WithdrawService,
+        CreditCardService,
+        DebitCardService
     }
+    public delegate IStrategy ServiceResolver(TypeOperation tipoServico);
 
 }

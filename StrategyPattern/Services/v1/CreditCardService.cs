@@ -1,5 +1,4 @@
 ﻿using StrategyPattern.Contracts.v1;
-using StrategyPattern.Models.v1;
 
 namespace StrategyPattern.Services.v1
 {

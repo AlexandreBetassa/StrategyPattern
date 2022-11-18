@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StrategyPattern.Contracts.v1;
 using StrategyPattern.Enum.v1;
-using StrategyPattern.Models.v1;
-using StrategyPattern.Services.v1;
+
 
 namespace StrategyPattern.Controllers.v1
 {
@@ -10,17 +9,17 @@ namespace StrategyPattern.Controllers.v1
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        private IStrategy _strategy;
+        private IEnumerable<IStrategy> _strategy;
 
-        public ValuesController(IStrategy strategy)
+        public ValuesController(IEnumerable<IStrategy> strategy)
         {
             _strategy = strategy;
         }
 
         [HttpPost]
-        public ActionResult<double> Post(double value, TypeOperation type)
+        public ActionResult<string> Post(string value)
         {
-            return _strategy.GetValue(value);
+            return value;
         }
 
     }

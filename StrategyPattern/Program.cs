@@ -1,4 +1,5 @@
 using StrategyPattern.Contracts.v1;
+using StrategyPattern.Enum.v1;
 using StrategyPattern.Models.v1;
 using StrategyPattern.Services.v1;
 
@@ -6,16 +7,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddTransient<IStrategy, PixService>();
-builder.Services.AddTransient<IStrategy, DebitCardService>();
-builder.Services.AddTransient<IStrategy, WithdrawService>();
-builder.Services.AddTransient<IStrategy, CreditCardService>();
-
+builder.Services.AddScoped<IStrategy, PixService>();
+builder.Services.AddScoped<IStrategy, DebitCardService>();
+builder.Services.AddScoped<IStrategy, WithdrawService>();
+builder.Services.AddScoped<IStrategy, CreditCardService>();
 
 var app = builder.Build();
 
