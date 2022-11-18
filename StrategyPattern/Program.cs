@@ -1,7 +1,11 @@
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using StrategyPattern.Contracts.v1;
 using StrategyPattern.Enum.v1;
 using StrategyPattern.Models.v1;
+using StrategyPattern.Services;
 using StrategyPattern.Services.v1;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,10 +17,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IStrategy, PixService>();
-builder.Services.AddScoped<IStrategy, DebitCardService>();
-builder.Services.AddScoped<IStrategy, WithdrawService>();
-builder.Services.AddScoped<IStrategy, CreditCardService>();
+builder.Services.RegisterAllTypes<IStrategy>(new[] { typeof(Program).Assembly });
 
 var app = builder.Build();
 

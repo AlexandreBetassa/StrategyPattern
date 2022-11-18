@@ -11,16 +11,14 @@ namespace StrategyPattern.Controllers.v1
     {
         private IEnumerable<IStrategy> _strategy;
 
-        public ValuesController(IEnumerable<IStrategy> strategy)
-        {
-            _strategy = strategy;
-        }
+        public ValuesController(IEnumerable<IStrategy> strategy) => _strategy = strategy;
 
-        [HttpPost]
-        public ActionResult<string> Post(string value)
-        {
-            return value;
-        }
-
+        [HttpGet]
+        public ActionResult<double> Get(double value, string type) =>
+            _strategy
+            .Where(item => item
+            .GetType().Name
+            .Contains(type))
+            .First().GetValue(value);
     }
 }
